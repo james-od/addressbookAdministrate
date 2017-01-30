@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>James's Address Book</title>
+ 
+    
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/addContact.css" rel="stylesheet">
+
+    <script src="../static/js/jquery-3.1.1.js"></script>
+    <script src="../static/js/addContact.js"></script>
+    <script src="../static/js/addOrganisation.js"></script>
+
+
+    
+  </head>
+ 
+  <body>
+ 
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="/">Home</a>
+                    </li>
+                    <li role="presentation" class="active"><a href="viewBook">View Book</a>
+                    </li>
+                </ul>
+        </nav>
+        <h3 class="text-muted">James's Address Book</h3>
+        </br>
+        <p class="text-muted">
+          Here you can add contacts and organisations. To add a contact enter their name, details and organisation. Please avoid spaces e.g Lastname,Firstname. The contact's organisation must already be in the system. Similarly for organisations.
+        </p>
+      </div>
+ 
+      <div class="jumbotron">
+        <h1>Add Contact</h1>
+        <form class="form-signin">
+        <label for="inputName" align ="left" class="sr-only">Name</label>
+        <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Name" required autofocus>
+        <label for="inputDetails" class="sr-only">Details</label>
+        <input type="details" name="inputDetails" id="inputDetails" class="form-control" placeholder="Input Details" required autofocus>
+        <label for="inputOrganisation" class="sr-only">Organisation</label>
+        <input type="organisation" name="inputOrganisation" id="inputOrganisation" class="form-control" placeholder="Organisation" required>
+         
+        <button id="btnAddContact" class="btn btn-lg btn-primary btn-block" type="button">Add</button>
+      </form>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Add Organisation</h1>
+        <form class="form-signin" >
+        <label for="inputOrgName" align ="left" class="sr-only">Organisation Name</label>
+        <input type="name" name="inputOrgName" id="inputOrgName" class="form-control" placeholder="Organisation Name" required autofocus>
+        <label for="inputOrgDetails" class="sr-only">Organisation Details</label>
+        <input type="details" name="inputOrgDetails" id="inputOrgDetails" class="form-control" placeholder="Organisation Details" required autofocus>
+        <button id="btnAddOrganisation" class="btn btn-lg btn-primary btn-block" type="button">Add</button>
+      </form>
+      </div>       
+ 
+      <footer class="footer">
+            <p>james@james-odonnell.com</p>
+      </footer>
+ 
+    </div>
+  </body>
+
+
+</html>

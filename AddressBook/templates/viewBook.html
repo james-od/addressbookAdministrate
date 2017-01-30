@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>James's Address Book</title>
+ 
+ 
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <script src="../static/js/jquery-3.1.1.js"></script>
+    <script src="../static/js/delContact.js"></script>
+    <script src="../static/js/delOrg.js"></script>
+
+</head>
+
+
+ 
+<body>
+ 
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="/">Home</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">James's Address Book</h3>
+            	</br>
+            	<p class="text-muted">
+				This is the address book. Contacts and organisations can be added, deleted and removed.
+				</p>
+        </div>
+
+
+        <div class="jumbotron">
+            <h1>Address Book</h1>
+            <p class="lead"></p>
+            <nav>
+            <ul class="nav nav-pills nav-stacked">
+
+           		<li role="presentation" class="active"><a href="showAddContact"><b>Click to add new</b></a>
+                	</li>
+            </ul>
+            </nav>
+            </br>
+        </div>
+
+
+        {% block content %}
+
+  		<ul class=sale>
+
+  		{% for org in organisations %}
+        <h2 align="left">{{ org.name }}</h2>
+
+    	<p align="left">
+    	<div>
+        <form method="GET" action="/editOrg" align="left">
+    	<input type="hidden" id="Orgname1" name="Orgname1" value={{org.name}}>
+    	<input type="hidden" id="Orgdetails1" name="Orgdetails1" value={{org.details}}>
+    	<input type="hidden" id="Orgname2" name="Orgname2" value={{org.name}}>
+    	<input type="hidden" id="Orgdetails2" name="Orgdetails2" value={{org.details}}>
+    	{{ org.details }}
+    	<button type="submit" id="submit" class="button" style="background-color: #428bca; border:none; color:white">Edit</button>
+ 		</form>
+
+ 		<form method="PUT" action="/delOrg" align="left">
+    	<input type="hidden" id="nameOrg" name="name" value={{org.name}}>
+    	<input type="hidden" id="detailsOrg" name="details" value={{org.details}}>
+    	<button type="submit" id="btnDelOrg" style="background-color: #428bca; border:none; color:white">delete</button>    							
+ 		</form> 	
+ 		</div>
+    	</p></br>
+
+		<table class="table table-striped">
+            		<thread>
+            		<tr>
+            			<th>Name</th>
+            			<th>Contact</th>
+            			<th></th>
+            		</tr>
+            		</thread>
+            		<tbody>
+            	    {% for contact in contacts %}
+            			<tr>
+            				{% if org.name == contact.org%}
+            				<td align="left" name="contactName" id="contactName">
+            					{{contact.name}}
+            				</td>
+            				<td align="left" name="contactDetails" id="contactDetails">
+            					{{contact.details}}
+            				</td>
+            				<td>
+
+            				    <form method="GET" action="/editContact">
+    							<input type="hidden" id="name1" name="name1" value={{contact.name}}>
+    							<input type="hidden" id="details1" name="details1" value={{contact.details}}>
+    							<input type="hidden" id="organisation1" name="organisation1" value={{contact.org}}>
+    							<input type="hidden" id="name2" name="name2" value={{contact.name}}>
+    							<input type="hidden" id="details2" name="details2" value={{contact.details}}>
+    							<input type="hidden" id="organisation2" name="organisation2" value={{contact.org}}>    							
+    							<button type="submit" id="submit" style="background-color: #428bca; border:none; color:white">Edit</button>
+ 								</form>
+
+            				    <form method="PUT" action="/delContact">
+    							<input type="hidden" id="name" name="name" value={{contact.name}}>
+    							<input type="hidden" id="details" name=s"details" value={{contact.details}}>
+    							<input type="hidden" id="organisation" name="organisation" value={{contact.org}}>						
+    							<button type="submit" id="btnDelContact" style="background-color: #428bca; border:none; color:white">delete</button>    							
+ 								</form> 								
+
+            				</td>
+            				{% endif %}
+            			</tr>
+            	    {% endfor %}            	
+            		</tbody>
+            	</table>
+
+			
+  			</br>
+  		{% endfor %}
+
+
+ 		 </ul>
+		{% endblock %}
+
+ 
+        <div class="row marketing">
+            <div class="col-lg-6">
+                <h4></h4>
+                <p></p>
+
+
+            </div>
+ 
+        </div>
+
+
+ 
+        <footer class="footer">
+            <p>james@james-odonnell.com
+
+            </p>
+        </footer>
+ 
+    </div>
+</body>
+ 
+</html>

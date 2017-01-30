@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>James's Address Book</title>
+ 
+    
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/addContact.css" rel="stylesheet">
+
+    <script src="../static/js/jquery-3.1.1.js"></script>
+    <script src="../static/js/editContact.js"></script>
+
+  </head>
+ 
+  <body>
+ 
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="/">Home</a>
+                    </li>
+                    <li role="presentation" class="active"><a href="viewBook">View Book</a>
+                    </li>
+                </ul>
+        </nav>
+        <h3 class="text-muted">James's Address Book</h3>
+        </br>
+        <p class="text-muted">
+          Here you can edit contacts. Please ensure no spaces are used and that the organisation's details have been entered.
+        </p>        
+      </div>
+
+ 
+      <div class="jumbotron">
+        <h1>Edit Contact</h1>
+
+        <form class="form-signin">
+        <label for="inputname1" align ="left" class="sr-only">Name</label>
+        <input type="hidden" value="" name="inputname1" id="inputname1" class="form-control" required autofocus>
+
+        <label for="inputdetails1" class="sr-only">Details</label>
+        <input type="hidden" name="inputdetails1" id="inputdetails1" class="form-control" placeholder="Input Details">
+        <label for="inputorg1" class="sr-only">Organisation</label>
+        <input type="hidden" name="inputorg1" id="inputorg1" class="form-control">
+
+        <label for="inputname2" align ="left" class="sr-only">Name</label>
+        <input type="test" value="" name="inputname2" id="inputname2" class="form-control" required autofocus>
+
+        <label for="inputdetails2" class="sr-only">Details</label>
+        <input type="details" name="inputdetails2" id="inputdetails2" class="form-control" placeholder="Input Details">
+        <label for="inputorg2" class="sr-only">Organisation</label>
+        <input type="organisation" name="inputorg2" id="inputorg2" class="form-control">
+
+        <button id="btnEditContact" class="btn btn-lg btn-primary btn-block" type="button" href="/">Edit</button>
+      </form>
+      </div>
+
+      <footer class="footer">
+            <p>james@james-odonnell.com</p>
+      </footer>
+ 
+    </div>
+    
+<!--This is dumb and causes the spaces problem-->
+    <script LANGUAGE="javascript">
+      function getURLParameter(name) {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+      }
+    </script> 
+
+    <script>
+
+      document.getElementById('inputname1').value = (getURLParameter('name1'));
+      document.getElementById('inputdetails1').value = (getURLParameter('details1'));
+      document.getElementById('inputorg1').value = (getURLParameter('organisation1'));
+
+      document.getElementById('inputname2').value = (getURLParameter('name2'));
+      document.getElementById('inputdetails2').value = (getURLParameter('details2'));
+      document.getElementById('inputorg2').value = (getURLParameter('organisation2'));
+
+    </script>
+
+  </body>
+
+
+</html>

@@ -1,0 +1,29 @@
+DELIMITER $$
+CREATE DEFINER=`secondGuest`@`mysql.james-odonnell.com` PROCEDURE `sp_addContact`(
+    IN p_name VARCHAR(30),
+    IN p_details VARCHAR(99),
+    IN p_org VARCHAR(30)
+)
+BEGIN
+    if ( select exists (select 1 from contacts where name = p_name) ) THEN
+     
+        select 'Contact Exists !!';
+     
+    ELSE
+     
+        insert into Contacts
+        (
+            name,
+            details,
+            org
+        )
+        values
+        (
+            p_name,
+            p_details,
+            p_org
+        );
+     
+    END IF;
+END$$
+DELIMITER ;
