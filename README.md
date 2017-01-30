@@ -12,4 +12,5 @@ I'm reasonably happy with the front end and I believe it meets all the requireme
 I really enjoyed it as an exercise as it was something new while still letting me apply some of my existing knowledge. I'm looking forward to discussing it and other (likely better) approaches I could have taken at the next stage of my application.
 
 Thanks for your time,
+
 James
