@@ -62,13 +62,23 @@ def addOrganisation():
         return json.dumps({'html':'<span>Bad</span>'})  
 
 
-@app.route('/editContact')
+@app.route('/editContact',methods=['GET','POST'])
 def edit():
+    Getname1 = request.args.get('name1', "defaultname")
+    Getdetails1 = request.args.get('details1', "defaultdetails")
+    Getorg1 = request.args.get('organisation1', "defaultorganisation")
+    Getname2 = request.args.get('name2', "defaultname")
+    Getdetails2 = request.args.get('details2', "defaultdetails")    
+    Getorg2 = request.args.get('organisation2', "defaultorganisation")
+    return render_template('editContact.html', Getname1=Getname1, Getdetails1=Getdetails1,Getorg1=Getorg1,
+     Getname2=Getname2, Getdetails2=Getdetails2, Getorg2=Getorg2)
+
     return render_template('editContact.html')
 
 
 @app.route('/runEditContact',methods=['POST'])
 def editContact():
+
     _name1 = request.form['inputname1'] 
     _details1 = request.form['inputdetails1']
     _org1 = request.form['inputorg1']
@@ -93,7 +103,12 @@ def editContact():
 
 @app.route('/editOrg')
 def editorg():
-    return render_template('editOrg.html')
+    GetOrgname1 = request.args.get('Orgname1', "defaultname")
+    GetOrgdetails1 = request.args.get('Orgdetails1', "defaultdetails")
+    GetOrgname2 = request.args.get('Orgname2', "defaultname")
+    GetOrgdetails2 = request.args.get('Orgdetails2', "defaultdetails")    
+    return render_template('editOrg.html', GetOrgname1=GetOrgname1, GetOrgdetails1=GetOrgdetails1,
+        GetOrgname2=GetOrgname2, GetOrgdetails2=GetOrgdetails2)
 
 
 @app.route('/runEditOrg',methods=['POST'])
@@ -188,7 +203,6 @@ def print_contacts():
     contactsList = cursor.fetchall()
     connection.commit()
     contacts = [dict(name=row[0], details=row[1], org=row[2]) for row in contactsList]
-
 
     temp = cursor.execute("""select name, details from Organisations""")
     orgs = cursor.fetchall()
