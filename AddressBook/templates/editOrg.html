@@ -61,20 +61,13 @@
     </div>
     
 
-    <script LANGUAGE="javascript">
-      function getURLParameter(name) {
-        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
-      }
-    </script> 
-
     <script>
 
-      document.getElementById('inputname1').value = (getURLParameter('Orgname1'));
-      document.getElementById('inputdetails1').value = (getURLParameter('Orgdetails1'));
+      document.getElementById('inputname1').value = "{{ GetOrgname1 }}";
+      document.getElementById('inputdetails1').value =  "{{ GetOrgdetails1 }}";
 
-      document.getElementById('inputname2').value = (getURLParameter('Orgname2'));
-      document.getElementById('inputdetails2').value = (getURLParameter('Orgdetails2'));
-
+      document.getElementById('inputname2').value = "{{ GetOrgname2 }}";
+      document.getElementById('inputdetails2').value = "{{ GetOrgdetails2 }}";
     </script>
 
   </body>
