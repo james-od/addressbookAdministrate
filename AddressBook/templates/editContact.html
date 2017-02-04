@@ -35,7 +35,7 @@
 
  
       <div class="jumbotron">
-        <h1>Edit Contact</h1>
+        <h1>Edit Contact </h1>
 
         <form class="form-signin">
         <label for="inputname1" align ="left" class="sr-only">Name</label>
@@ -59,27 +59,23 @@
       </div>
 
       <footer class="footer">
+
             <p>james@james-odonnell.com</p>
+
       </footer>
  
     </div>
-    
-<!--This is dumb and causes the spaces problem-->
-    <script LANGUAGE="javascript">
-      function getURLParameter(name) {
-        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
-      }
-    </script> 
 
     <script>
 
-      document.getElementById('inputname1').value = (getURLParameter('name1'));
-      document.getElementById('inputdetails1').value = (getURLParameter('details1'));
-      document.getElementById('inputorg1').value = (getURLParameter('organisation1'));
+      document.getElementById('inputname1').value = "{{Getname1}}";
+      document.getElementById('inputdetails1').value = "{{Getdetails1}}";
+      document.getElementById('inputorg1').value = "{{Getorg1}}";
 
-      document.getElementById('inputname2').value = (getURLParameter('name2'));
-      document.getElementById('inputdetails2').value = (getURLParameter('details2'));
-      document.getElementById('inputorg2').value = (getURLParameter('organisation2'));
+      document.getElementById('inputname2').value = "{{Getname2}}";
+      document.getElementById('inputdetails2').value = "{{Getdetails2}}";
+      document.getElementById('inputorg2').value = "{{Getorg2}}";
+
 
     </script>
 
