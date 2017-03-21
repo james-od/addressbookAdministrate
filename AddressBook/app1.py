@@ -6,8 +6,8 @@ mysql = MySQL()
 
  
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'secondguest'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'secondGuestPW'
+app.config['MYSQL_DATABASE_USER'] = #username
+app.config['MYSQL_DATABASE_PASSWORD'] = #password
 app.config['MYSQL_DATABASE_DB'] = 'james_odonnell_addressbook'
 app.config['MYSQL_DATABASE_HOST'] = 'mysql.james-odonnell.com'
 mysql.init_app(app)
